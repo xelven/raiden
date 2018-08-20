@@ -1758,7 +1758,7 @@ def handle_channel_updated_transfer(
     if state_change.channel_identifier == channel_state.identifier:
         # update transfer was called, make sure we don't call it again
         channel_state.update_transaction = TransactionExecutionStatus(
-            started_block_number=block_number,
+            started_block_number=None,
             finished_block_number=block_number,
             result=TransactionExecutionStatus.SUCCESS,
         )

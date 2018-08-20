@@ -1624,13 +1624,14 @@ def test_update_transfer():
     # now update_transaction in channel state should be set
     channel_state = iteration2.new_state
     assert channel_state.update_transaction == TransactionExecutionStatus(
-        update_block_number,
+        None,
         update_block_number,
         TransactionExecutionStatus.SUCCESS,
     )
 
     closed_block_number = 15
     state_change = ContractReceiveChannelClosed(
+        factories.make_transaction_hash(),
         partner_model1.participant_address,
         channel_state.token_network_identifier,
         channel_state.identifier,
